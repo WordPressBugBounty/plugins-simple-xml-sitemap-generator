@@ -1,0 +1,1 @@
+# plugins-simple-xml-sitemap-generator
