@@ -3,24 +3,22 @@
 Plugin Name: Simple XML Sitemap Generator
 Plugin URI: http://www.chefblogger.me
 Description: XML Sitemap creates an XML for use with Google and Yahoo (and Yes! Bing too). Just install it to your wordpress installation and let the plugin do his job. <a href="options-general.php?page=QWA_sxmlsg">Administration</a>
-Version: 2.2.3
+Version: 2.3
 Author: Eric-Oliver Mächler
 Author URI: http://www.chefblogger.me
 Requires at least: 3.5
-Tested up to: 6.0
+Tested up to: 6.7.1
+Text Domain: simple-xml-sitemap-generator
+Domain Path: /languages
 */
 
 include 'conf.php';
 
 //mehrsprachigkeit
-//threema mehrsprachig machen
 function my_plugin_initsimplexmlsitemapgenerator() {
   load_plugin_textdomain( 'simple-xml-sitemap-generator', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
 add_action('init', 'my_plugin_initsimplexmlsitemapgenerator');
-
-
-
 
 
 /* WordPress 5.5 interner XML Sitemap Generator abschalten */
@@ -41,7 +39,7 @@ function sg_create_sitemap() {
 
 
   $xmlpost_id = get_the_ID();
-  $xmlpost_id_check = nl2br(get_post_meta($prod_id,'sitemap',true));
+  $xmlpost_id_check = nl2br(get_post_meta($xmlpost_id,'sitemap',true));
 
   foreach($postsForSitemap as $post) {
     setup_postdata($post);

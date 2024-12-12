@@ -223,7 +223,16 @@ $screenshot = '<img src="' . plugins_url( 'images/screenshot-2.png', __FILE__ ) 
   
   ?>
   </div>
-  
+  <div class="wrap">
+<h2><?php _e( 'Plugin recommendation', 'wp-smart-seo' ); ?></h2>
+	<p><?php _e( 'if you need are looking for a seo plugin for your wordpress, then I recommend this plugin called "WP Smart SEO".', 'wp-smart-seo' ); ?><br />
+	<?php _e( 'Download:', 'wp-smart-seo' ); ?> <a href="https://de.wordpress.org/plugins/wp-smart-seo/" target="_blank">https://de.wordpress.org/plugins/wp-smart-seo/</a></p>
+	
+	<p><?php _e( 'If you want to install google analytics (Universal and GA4), then I recommend this plugin "Quick Google Analytics".', 'wp-smart-seo' ); ?><br />
+	<?php _e( 'Download:', 'wp-smart-seo' ); ?> <a href="https://wordpress.org/plugins/quick-google-analytics/" target="_blank">https://wordpress.org/plugins/quick-google-analytics/</a></p>
+	
+	<p><?php _e( 'all 3 plugins work perfectly together', 'wp-smart-seo' ); ?></p>
+</div>
   <div class="wrap">
  
   <h2><?php _e( 'Information', 'simple-xml-sitemap-generator' ); ?></h2>
