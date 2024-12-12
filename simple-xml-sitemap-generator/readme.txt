@@ -1,15 +1,14 @@
 === Simple XML Sitemap Generator ===
 Contributors: Annubis
 Donate link: http://www.chefblogger.me
-Tags: XML, Sitemap, Simple Sitemap, Generator, Sitemap Generator
-Version: 2.2.7
+Tags: XML, Sitemap, Simple Sitemap, Simple XML, Sitemap Plugin, XML Generator, Generator, Sitemap Generator,
+Version: 2.2.3
 Requires at least: 3.0.1
-Tested up to: 6.5
-Stable tag: 2.2.6
+Tested up to: 6.0
+Stable tag: 6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-add a sitemap to your wordpress website
 
 == Description ==
 XML Sitemap creates an XML for use with Google and Yahoo (and Yes! Bing too)
@@ -51,10 +50,6 @@ Just follow this Steps
 After install the plugin, simply create (or Update one) and WordPress create your sitemap.xml right away. Then you will able to access your sitemap in http://yoursitelink.com/sitemap.xml
 
 == Changelog ==
-= 2.2.7 =
-* <killed> some minor bugs
-= 2.2.4 =
-* Minor Update
 = 2.2.3 =
 * Version update for WP 6.0
 = 2.2.2 =
