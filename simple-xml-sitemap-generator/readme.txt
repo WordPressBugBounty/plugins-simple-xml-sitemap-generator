@@ -2,14 +2,14 @@
 Contributors: Annubis
 Donate link: http://www.chefblogger.me
 Tags: XML, Sitemap, Simple Sitemap, Generator, Sitemap Generator
-Version: 2.3
-Requires at least: 3.0.1
-Tested up to: 6.7.1
-Stable tag: 2.3
+Version: 2.4
+Requires at least: 4.0
+Tested up to: 6.8
+Stable tag: 2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-add a sitemap to your wordpress website
+add a sitemap to your wordpress website.
 
 == Description ==
 XML Sitemap creates an XML for use with Google and Yahoo (and Yes! Bing too)
@@ -63,10 +63,8 @@ After install the plugin, simply create (or Update one) and WordPress create you
 * Version update for WP 5.9
 = 2.2 =
 * now you can add your own sitemap priority value to posts, pages or products.
-
 = 2.1 =
 * now you can exclude certain posts or pages or woocommerce produts from the xml sitemap.
-
 = 2.0 =
 * multilingual ( engl & german) - if you whant a other language - please contact me
 
