@@ -1,0 +1,24 @@
+<?php
+$absolute_path = explode('wp-content', $_SERVER['SCRIPT_FILENAME']);
+$wp_load = $absolute_path[0] . 'wp-load.php';
+require_once($wp_load);
+
+/**
+  Do stuff like connect to WP database and grab user set values
+ */
+
+header('Content-type: text/css');
+header('Cache-control: must-revalidate');
+
+
+?>
+
+/* CSS Document */
+/* plugin css */
+
+.sxmlsg_box {
+padding: 2%;
+border: 1px solid #000000;
+background-color: #fff;
+margin-bottom: 10px;
+}

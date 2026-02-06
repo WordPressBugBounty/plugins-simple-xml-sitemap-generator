@@ -3,11 +3,11 @@
 Plugin Name: Simple XML Sitemap Generator
 Plugin URI: http://www.chefblogger.me
 Description: XML Sitemap creates an XML for use with Google and Yahoo (and Yes! Bing too). Just install it to your wordpress installation and let the plugin do his job. <a href="options-general.php?page=QWA_sxmlsg">Administration</a>
-Version: 2.4
+Version: 2.5
 Author: Eric-Oliver Mächler
 Author URI: http://www.chefblogger.me
 Requires at least: 4.0
-Tested up to: 6.8
+Tested up to: 6.9
 Text Domain: simple-xml-sitemap-generator
 Domain Path: /languages
 License: GPLv2 or later
@@ -15,6 +15,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 include 'conf.php';
+
+// Funktion zum Einbinden des PHP-Stylesheets
+function sxmlsg_enqueue_styles()
+{
+  // Pfad zum PHP-Stylesheet
+  $php_file = plugins_url('css/style.php', __FILE__);
+  wp_enqueue_style('sxmlsg-style', $php_file);
+}
+
+add_action('admin_enqueue_scripts', 'sxmlsg_enqueue_styles');
+//add_action('wp_enqueue_scripts', 'sxmlsg_enqueue_styles');
+
 
 // Mehrsprachigkeit laden
 function my_plugin_initsimplexmlsitemapgenerator()
@@ -29,10 +41,14 @@ add_filter('wp_sitemaps_enabled', '__return_false');
 // Sitemap-Erstellung
 function sg_create_sitemap()
 {
+  $sxmlsg_cpt = get_option('sxmlsg_cpt');
+  $cpt_array = array_map('trim', explode(',', $sxmlsg_cpt));
+
   $postsForSitemap = get_posts(array(
     'numberposts' => -1,
     'orderby'     => 'modified',
-    'post_type'   => array('post', 'page', 'product'),
+    //'post_type'   => array('post', 'page', 'product'),
+    'post_type'   => array_merge(array('post', 'page', 'product'), $cpt_array),
     'order'       => 'DESC'
   ));
 

@@ -7,7 +7,7 @@ function adminForm_sxmlsg()
 
 
 ?>
-  <div class="wrap">
+  <div class="wrap sxmlsg_box">
     <h2><?php esc_html_e('Simple XML Sitemap Generator', 'simple-xml-sitemap-generator'); ?></h2>
 
     <p><?php esc_html_e('With this Plugin an XML Sitemap will be generated automatically.', 'simple-xml-sitemap-generator'); ?></p>
@@ -32,21 +32,6 @@ foreach($categories as $category) {
 <h3>#ende#</h3>		 
 */
 
-    /*------nonce field check start ---- */
-    if (isset($_REQUEST['submit'])) {
-
-      if (
-        ! isset($_POST['nonce_tel'])
-        || ! wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce_tel'])), 'nonce_tel_field')
-      ) {
-
-        //print 'Sorry, your nonce did not verify.';
-        exit;
-      } else {
-        saveForm_quickwhatsapp();
-      }
-    }
-    /*------nonce field check end ---- */
 
 
 
@@ -69,6 +54,23 @@ foreach($categories as $category) {
     /*------nonce field reset end ---- */
 
 
+    if (isset($_REQUEST['sxmlsg_cpt_submit'])) {
+      if (!isset($_POST['nonce_sxmlsg_cpt']) || ! wp_verify_nonce($_POST['nonce_sxmlsg_cpt'], 'nonce_sxmlsg_cpt_field')) {
+        exit;
+      } else {
+        saveCPT_sxmlsg();
+      }
+    }
+
+
+    if (isset($_REQUEST['submit_cpt_reset'])) {
+      if (!isset($_POST['nonce_reset_cpt']) || ! wp_verify_nonce($_POST['nonce_reset_cpt'], 'nonce_reset_cpt_field')) {
+        exit;
+      } else {
+        resetCPT_sxmlsg();
+      }
+    }
+
 
 
 
@@ -90,28 +92,6 @@ foreach($categories as $category) {
 
 
 
-
-  /* --------------------------------------------------------------------------------------------------------------------------------------- */
-  //reset
-  if (isset($_REQUEST['quickwhatsappbutton_reset'])) {
-    // Add nonce verification for reset functionality
-    if (isset($_POST['reset_nonce']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['reset_nonce'])), 'reset_nonce_field')) {
-      $resetter = '';
-      update_option('quickwhatsapp', sanitize_text_field($resetter));
-    }
-  }
-
-  function resetForm_quickwhatsapp333333()
-  {
-
-    update_option('quickwhatsapp', '');
-  }
-  /* --------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-  /* --------------------------------------------------------------------------------------------------------------------------------------- */
   /* greetings */
   function saveForm_kat_sxmlsg()
   {
@@ -128,12 +108,25 @@ foreach($categories as $category) {
       update_option('sxmlsg_kategorien', $sxmlsg_wpkat);
     }
   }
-  /* --------------------------------------------------------------------------------------------------------------------------------------- */
 
 
 
+  function saveCPT_sxmlsg()
+  {
+    $sxmlsg_cpt = isset($_POST['sxmlsg_cpt']) ? sanitize_text_field($_POST['sxmlsg_cpt']) : '0';
 
-  /* --------------------------------------------------------------------------------------------------------------------------------------- */
+    update_option('sxmlsg_cpt', $sxmlsg_cpt);
+  }
+
+
+  function resetCPT_sxmlsg()
+  {
+
+    update_option('sxmlsg_cpt', '');
+  }
+
+
+
   function showForm_sxmlsg()
   {
 
@@ -143,47 +136,70 @@ foreach($categories as $category) {
 
 
     $sxmlsg_kategorien_view = get_option('sxmlsg_kategorien');
+    $sxmlsg_cpt = get_option('sxmlsg_cpt');
 
 
     ?>
-    <form method='post'>
-      <h3><?php esc_html_e('Add WordPress post category to the Sitemap?', 'simple-xml-sitemap-generator'); ?></h3>
+    <div class="sxmlsg_box">
+      <form method='post'>
+        <h3><?php esc_html_e('Add WordPress post category to the Sitemap?', 'simple-xml-sitemap-generator'); ?></h3>
 
-      <?php
-      //<option value="Ja" selected="selected">Ja</option>
+        <?php
+        //<option value="Ja" selected="selected">Ja</option>
 
-      echo '<select name="sxmlsg_wpkat" id="sxmlsg_wpkat">';
+        echo '<select name="sxmlsg_wpkat" id="sxmlsg_wpkat">';
 
-      if ($sxmlsg_kategorien_view  == 'Nein') {
-      ?>
-        <option value="Nein" selected="selected"><?php esc_html_e('No', 'simple-xml-sitemap-generator'); ?></option>
-        <option value="Ja"><?php esc_html_e('Yes', 'simple-xml-sitemap-generator'); ?></option>
-      <?php
-      } elseif ($sxmlsg_kategorien_view == 'Ja') {
-      ?>
-        <option value="Nein"><?php esc_html_e('No', 'simple-xml-sitemap-generator'); ?></option>
-        <option value="Ja" selected="selected"><?php esc_html_e('Yes', 'simple-xml-sitemap-generator'); ?></option>
-      <?php
-      } else {
-      ?>
-        <option value="Nein"><?php esc_html_e('No', 'simple-xml-sitemap-generator'); ?></option>
-        <option value="Ja"><?php esc_html_e('Yes', 'simple-xml-sitemap-generator'); ?></option>
-      <?php
-      }
-      ?>
-      </select>
+        if ($sxmlsg_kategorien_view  == 'Nein') {
+        ?>
+          <option value="Nein" selected="selected"><?php esc_html_e('No', 'simple-xml-sitemap-generator'); ?></option>
+          <option value="Ja"><?php esc_html_e('Yes', 'simple-xml-sitemap-generator'); ?></option>
+        <?php
+        } elseif ($sxmlsg_kategorien_view == 'Ja') {
+        ?>
+          <option value="Nein"><?php esc_html_e('No', 'simple-xml-sitemap-generator'); ?></option>
+          <option value="Ja" selected="selected"><?php esc_html_e('Yes', 'simple-xml-sitemap-generator'); ?></option>
+        <?php
+        } else {
+        ?>
+          <option value="Nein"><?php esc_html_e('No', 'simple-xml-sitemap-generator'); ?></option>
+          <option value="Ja"><?php esc_html_e('Yes', 'simple-xml-sitemap-generator'); ?></option>
+        <?php
+        }
+        ?>
+        </select>
 
 
 
-      </label><br />
-      <p></p>
-      <input type="submit" style="height: 25px; width: 250px" name="submit_post_kat_sxmlsg" value="<?php esc_attr_e('Save', 'simple-xml-sitemap-generator'); ?>">
-      <?php wp_nonce_field('nonce_wppostkat_field', 'nonce_wppostkat'); ?>
-    </form><br />
+        </label><br />
+        <p></p>
+        <input type="submit" style="height: 25px; width: 250px" name="submit_post_kat_sxmlsg" value="<?php esc_attr_e('Save', 'simple-xml-sitemap-generator'); ?>">
+        <?php wp_nonce_field('nonce_wppostkat_field', 'nonce_wppostkat'); ?>
+      </form><br />
+    </div>
+    <div class="sxmlsg_box">
+      <form method="post">
+        <h3><?php esc_html_e('Custom Post Type', 'simple-xml-sitemap-generator'); ?></h3>
+        <p><?php esc_html_e('Would you like to display CPT in your sitemap? Then enter the cpt slug separated by a comma (,) in the field below.', 'simple-xml-sitemap-generator'); ?></p>
+
+        <label for="sxmlsg_cpt"><strong><?php _e('CPT', 'simple-xml-sitemap-generator'); ?></strong><br />
+          <input type="text" id="sxmlsg_cpt" size="50" name="sxmlsg_cpt" value="<?php echo $sxmlsg_cpt ?>" placeholder="project, books, car">
+
+        </label><br /><br />
+
+        <input type="submit" style="height: 25px; width: 250px" name="sxmlsg_cpt_submit" value="<?php _e('Save', 'simple-xml-sitemap-generator'); ?>">
+        <?php wp_nonce_field('nonce_sxmlsg_cpt_field', 'nonce_sxmlsg_cpt'); ?>
+      </form><br />
+
+      <form method="post">
+        <input type="submit" style="height: 25px; width: 250px" name="submit_cpt_reset" value="<?php _e('Reset', 'simple-xml-sitemap-generator'); ?>">
+        <?php wp_nonce_field('nonce_reset_cpt_field', 'nonce_reset_cpt'); ?>
+      </form>
+    </div>
+
 
     <hr>
     <br />
-    <div class="wrap">
+    <div class="wrap sxmlsg_box">
       <?php
       $screenshot = '<img src="' . esc_url(plugins_url('images/screenshot-1.png', __FILE__)) . '" width="600">';
       ?>
@@ -197,7 +213,7 @@ foreach($categories as $category) {
       <p><?php echo wp_kses_post($screenshot); ?></p>
     </div>
     <hr>
-    <div class="wrap">
+    <div class="wrap sxmlsg_box">
       <?php
       $screenshot = '<img src="' . esc_url(plugins_url('images/screenshot-2.png', __FILE__)) . '" width="600">';
       ?>
@@ -217,7 +233,7 @@ foreach($categories as $category) {
 
     ?>
   </div>
-  <div class="wrap">
+  <div class="wrap sxmlsg_box">
     <h2><?php esc_html_e('Plugin recommendation', 'simple-xml-sitemap-generator'); ?></h2>
     <p><?php esc_html_e('if you need are looking for a seo plugin for your wordpress, then I recommend this plugin called "WP Smart SEO".', 'simple-xml-sitemap-generator'); ?><br />
       <?php esc_html_e('Download:', 'simple-xml-sitemap-generator'); ?> <a href="<?php echo esc_url('https://de.wordpress.org/plugins/simple-xml-sitemap-generator/'); ?>" target="_blank"><?php echo esc_url('https://de.wordpress.org/plugins/simple-xml-sitemap-generator/'); ?></a></p>
@@ -227,7 +243,7 @@ foreach($categories as $category) {
 
     <p><?php esc_html_e('all 3 plugins work perfectly together', 'simple-xml-sitemap-generator'); ?></p>
   </div>
-  <div class="wrap">
+  <div class="wrap sxmlsg_box">
 
     <h2><?php esc_html_e('Information', 'simple-xml-sitemap-generator'); ?></h2>
     <p><?php esc_html_e('This is the Simple XML Sitemap Generator Plugin for WordPress - created by', 'simple-xml-sitemap-generator'); ?> Eric-Oliver M&auml;chler von <a href="<?php echo esc_url('http://www.chefblogger.me'); ?>" target="_blank"><?php echo esc_url('www.chefblogger.me'); ?></a></p>

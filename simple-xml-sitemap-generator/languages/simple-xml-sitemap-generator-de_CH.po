@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Simple XML Sitemap Generator\n"
-"POT-Creation-Date: 2025-05-25 08:53+0200\n"
-"PO-Revision-Date: 2025-05-25 08:53+0200\n"
+"POT-Creation-Date: 2026-01-15 19:22+0100\n"
+"PO-Revision-Date: 2026-01-15 19:24+0100\n"
 "Last-Translator: Eric Mächler <eric@chefblogger.me>\n"
 "Language-Team: \n"
 "Language: de_CH\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: index.php\n"
@@ -42,33 +42,53 @@ msgstr ""
 "aktualisieren oder erneut speichern, und danach wird Ihre XML-Datei "
 "generiert."
 
-#: form.php:126
+#: form.php:106
 msgid "new setting saved"
 msgstr "neue Einstellung gespeichert"
 
-#: form.php:150
+#: form.php:145
 msgid "Add WordPress post category to the Sitemap?"
 msgstr "WordPress-Beitragskategorie zur Sitemap hinzufügen?"
 
-#: form.php:159 form.php:164 form.php:169
+#: form.php:154 form.php:159 form.php:164
 msgid "No"
 msgstr "Nein"
 
-#: form.php:160 form.php:165 form.php:170
+#: form.php:155 form.php:160 form.php:165
 msgid "Yes"
 msgstr "Ja"
 
-#: form.php:180
+#: form.php:175 form.php:189
 msgid "Save"
-msgstr "Speichern"
+msgstr "Spicherä"
 
-#: form.php:190
+#: form.php:181
+msgid "Custom Post Type"
+msgstr "Benutzerdefinierter Biitragstyp"
+
+#: form.php:182
+msgid ""
+"Would you like to display CPT in your sitemap? Then enter the cpt slug "
+"separated by a comma (,) in the field below."
+msgstr ""
+"Du wtsch CPT (Benutzerdefinierte Biitragstyp) i diniere Sitemap azeige laah? "
+"Den gib d'slug trennt miteme Komma (,) is unteri Feld ii."
+
+#: form.php:184
+msgid "CPT"
+msgstr "CPt"
+
+#: form.php:194
+msgid "Reset"
+msgstr "Zrugsetze"
+
+#: form.php:206
 msgid "Exclude Post or Pages or WooCommerce Product?"
 msgstr ""
 "Blogbeitrag oder Seite oder Woocommerce Produkt ausschliessen von der xml "
 "sitemap??"
 
-#: form.php:191
+#: form.php:207
 msgid ""
 "You would to to prevent certain Posts or Pages or WooCommerce Product from "
 "being displayed in the xml sitemap?"
@@ -76,23 +96,23 @@ msgstr ""
 "Du möchtest gewisse Beiträge, Seiten oder WooCommerce Produkte von der xml "
 "sitemap anzeige ausschliessen?"
 
-#: form.php:192 form.php:206
+#: form.php:208 form.php:222
 msgid "1. Create  new Custome Field"
 msgstr "1. Erstelle ein neues <b>Eigenes Feld</b>"
 
-#: form.php:193
+#: form.php:209
 msgid "2. enter the following text <b>sitemap</b> in the <b>Name</b> field"
 msgstr "2. Gib im Feld <b>Name</b> den Wert <b>sitemap</b> ein"
 
-#: form.php:194
+#: form.php:210
 msgid "3. enter the following text <b>no</b> in the <b>Value</b> field"
 msgstr "3. Gib im Feld <b>Wert</b> den Wert <b>no</b> ein"
 
-#: form.php:195 form.php:210
+#: form.php:211 form.php:226
 msgid "4. save this post or page or woocommerce product"
 msgstr "4. speichere nun diesen Beitrag/Seite oder WooCommerce Produkt ab"
 
-#: form.php:196
+#: form.php:212
 msgid ""
 "5. this post / page / or woocommerce product is no longer displayed in your "
 "xml sitemap"
@@ -100,36 +120,36 @@ msgstr ""
 "5. nun ist dieser Blogbeitrag / Seite oder Produkt nicht mehr in der xml "
 "sitemap sichtbar"
 
-#: form.php:204
+#: form.php:220
 msgid "Set sitemap priority value yourself"
 msgstr "Setzen Sie den Sitemap Priority Wert selbst"
 
-#: form.php:205
+#: form.php:221
 msgid "You want to set the priority value yourself in your posts or pages?"
 msgstr ""
 "Sie möchten den Sitemap Priority Wert in ihren Seiten oder Blogbeiträge "
 "selber setzen?"
 
-#: form.php:207
+#: form.php:223
 #, fuzzy
 #| msgid "2. enter the following text <b>sitemap</b> in the <b>Name</b> field"
 msgid ""
 "2. enter the following text <b>sitemapscore</b> in the <b>Name</b> field"
 msgstr "2. Gib im Feld <b>Name</b> den Wert <b>sitemap</b> ein"
 
-#: form.php:208
+#: form.php:224
 msgid "3a. now you can add your priority value in the <b>Value</b> field. "
 msgstr ""
 "3a. Nun können sie ihren gewünschten Priority Wert in das <b>Wert</b> Feld "
 "eingeben "
 
-#: form.php:209
+#: form.php:225
 #, fuzzy
 #| msgid "3b. the value must be between 0 and 10 "
 msgid "3b. the value must be between 0 and 1 (exp 0.8) "
 msgstr "3b. Der Wert muss zwischen 0 und 1 (Beispiel 0.8) liegen "
 
-#: form.php:211
+#: form.php:227
 #, fuzzy
 #| msgid ""
 #| "5. this post / page / or woocommerce product is no longer displayed in "
@@ -141,11 +161,11 @@ msgstr ""
 "5. nun ist dieser Blogbeitrag / Seite oder Produkt nicht mehr in der xml "
 "sitemap sichtbar"
 
-#: form.php:221
+#: form.php:237
 msgid "Plugin recommendation"
 msgstr "Plugin-Empfehlung"
 
-#: form.php:222
+#: form.php:238
 msgid ""
 "if you need are looking for a seo plugin for your wordpress, then I "
 "recommend this plugin called \"WP Smart SEO\"."
@@ -153,11 +173,11 @@ msgstr ""
 "Wenn Sie nach einem SEO-Plugin für Ihr WordPress suchen, dann empfehle ich "
 "dieses Plugin namens \"WP Smart SEO\"."
 
-#: form.php:223 form.php:226
+#: form.php:239 form.php:242
 msgid "Download:"
 msgstr "Herunterladen:"
 
-#: form.php:225
+#: form.php:241
 msgid ""
 "If you want to install google analytics (Universal and GA4), then I "
 "recommend this plugin \"Quick Google Analytics\"."
@@ -165,15 +185,15 @@ msgstr ""
 "Wenn Sie Google Analytics (Universal und GA4) installieren möchten, dann "
 "empfehle ich dieses Plugin \"Quick Google Analytics\"."
 
-#: form.php:228
+#: form.php:244
 msgid "all 3 plugins work perfectly together"
 msgstr "Alle 3 Plugins arbeiten perfekt zusammen"
 
-#: form.php:232
+#: form.php:248
 msgid "Information"
 msgstr "Information"
 
-#: form.php:233
+#: form.php:249
 msgid ""
 "This is the Simple XML Sitemap Generator Plugin for WordPress - created by"
 msgstr ""
