@@ -3,11 +3,11 @@
 Plugin Name: Simple XML Sitemap Generator
 Plugin URI: http://www.chefblogger.me
 Description: XML Sitemap creates an XML for use with Google and Yahoo (and Yes! Bing too). Just install it to your wordpress installation and let the plugin do his job. <a href="options-general.php?page=QWA_sxmlsg">Administration</a>
-Version: 2.5
+Version: 2.5.1
 Author: Eric-Oliver Mächler
 Author URI: http://www.chefblogger.me
 Requires at least: 4.0
-Tested up to: 6.9
+Tested up to: 7.1
 Text Domain: simple-xml-sitemap-generator
 Domain Path: /languages
 License: GPLv2 or later

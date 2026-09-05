@@ -2,10 +2,10 @@
 Contributors: Annubis
 Donate link: http://www.chefblogger.me
 Tags: XML, Sitemap, Simple Sitemap, Generator, Sitemap Generator
-Version: 2.5
+Version: 2.5.1
 Requires at least: 4.0
-Tested up to: 6.9
-Stable tag: 2.5
+Tested up to: 7.1
+Stable tag: 2.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,8 @@ Just follow this Steps
 After install the plugin, simply create (or Update one) and WordPress create your sitemap.xml right away. Then you will able to access your sitemap in http://yoursitelink.com/sitemap.xml
 
 == Changelog ==
+= 2.5.1 =
+* debug
 = 2.5 =
 * add new cpt field
 = 2.3 =
